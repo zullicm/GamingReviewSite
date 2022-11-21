@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
+import styled, { css } from 'styled-components'
+
+
 
 function App() {
+
+  const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+
+  
+  ${props =>
+    props.primary &&
+    css`
+      background: palevioletred;
+      color: white;
+    `};
+  `
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1 className='firsthead' >Hello world</h1>
+        <Button>Test</Button>
     </div>
   );
 }

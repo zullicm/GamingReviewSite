@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import styled, { css } from 'styled-components'
+import NavBar from './Components/NavBar';
 
 
 
@@ -24,10 +25,15 @@ function App() {
     `};
   `
 
+  function handleClick(){
+    console.log("Success!")
+  }
+
   return (
     <div className="App">
+      <NavBar/>
         <h1 className='firsthead' >Hello world</h1>
-        <Button>Test</Button>
+        <Button onClick={handleClick}>Test</Button>
     </div>
   );
 }

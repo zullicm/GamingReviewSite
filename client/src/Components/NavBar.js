@@ -9,12 +9,11 @@ function NavBar(){
   return(
     <div>
       <nav className="blue">
-        <div className="logo-container">
         <NavLink className="page-logo" exact to="/">🎮Bygone Gaming🎮</NavLink>
-        </div>
+        <NavLink className="signin" exact to="/signin">Sign In</NavLink>
       </nav>
     </div>
   )
 }
-
+// SignInPage
 export default NavBar

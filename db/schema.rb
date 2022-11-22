@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2022_11_22_170015) do
     t.integer "release_year"
     t.string "platform"
     t.string "description"
-    t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

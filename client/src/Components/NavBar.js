@@ -8,7 +8,7 @@ function NavBar(){
 
   return(
     <div>
-      <nav className="blue">
+      <nav className="blue lighten-2">
         <NavLink className="page-logo" exact to="/">🎮Bygone Gaming🎮</NavLink>
         <NavLink className="signin" exact to="/signin">Sign In</NavLink>
       </nav>

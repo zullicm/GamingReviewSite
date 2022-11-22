@@ -10,7 +10,7 @@ function NavBar(){
     <div>
       <nav className="blue lighten-2">
         <NavLink className="page-logo" exact to="/">🎮Bygone Gaming🎮</NavLink>
-        <NavLink className="signin" exact to="/signin">Sign In</NavLink>
+        <NavLink className="signin" exact to="/login">Login</NavLink>
       </nav>
     </div>
   )

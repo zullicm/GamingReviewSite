@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Homepage from './Components/Homepage';
 import NavBar from './Components/NavBar';
-import SignInPage from './Components/SignInPage';
+import Login from './Components/Login';
 
 
 
@@ -17,8 +17,8 @@ function App() {
         <Route exact path="/">
           <Homepage />
         </Route>
-        <Route exact path="/signin">
-          <SignInPage />
+        <Route exact path="/login">
+          <Login />
         </Route>
       </Switch>
     </div>

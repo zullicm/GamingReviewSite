@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_11_22_170015) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
-    t.string "release_date"
+    t.integer "release_year"
     t.string "platform"
     t.string "description"
     t.integer "rating"

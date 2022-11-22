@@ -1,3 +1,11 @@
+# Bygone Gaming
+
+## Description
+
+Byegone gaming is a website about the games of the past. Mainly games from two console generations before the current or any game 10+ years of age. A lot of new gamers find themselves gravitating towards todays most popular games but some may wonder where it all started. Here you can upload the game you have na dleave a review so the people that have never played may see what they missed out on. 
+
+
+
 # Project Template: React/Rails API
 
 ## Description

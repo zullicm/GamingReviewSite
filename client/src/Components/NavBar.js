@@ -5,16 +5,13 @@ import styled, { css } from 'styled-components'
 
 function NavBar(){
 
-  const Nav = styled(NavLink)`
-  background: lightblue;
-  color: red;
-  `
-
 
   return(
     <div>
-      <nav>
-        <Nav exact to="/">Gamer</Nav>
+      <nav className="blue">
+        <div className="logo-container">
+        <NavLink className="page-logo" exact to="/">🎮Bygone Gaming🎮</NavLink>
+        </div>
       </nav>
     </div>
   )

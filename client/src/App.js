@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Homepage from './Components/Homepage';
@@ -8,12 +8,24 @@ import Login from './Components/Login';
 
 
 function App() {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(null)
 
   function setCurrentUser(user){
     setUser(user)
+    console.log("userset")
   }
 
+  useEffect(() =>{
+    fetch('/auth')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => setCurrentUser(user))
+      }
+    })
+  },[])
+
+if(!user) return <Login setCurrentUser={setCurrentUser} />
+console.log(user)
   return (
     <div className="App">
       <NavBar/>

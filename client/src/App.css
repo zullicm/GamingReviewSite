@@ -71,7 +71,7 @@ body{
 }
 
 .signin{
-  width: 15%;
+  width: 10%;
   float: right;
 }
 
@@ -87,17 +87,19 @@ body{
 
 .gamecard-container{
   padding: 15px;
-  object-position: left;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.082);
 }
 
 .gamecard{
   width: 50%;
   padding: 50px;
-  
+  margin: 10px;
 }
 
 .game-cover{
   width: 200px;
   height: 275px;
+  padding-bottom: 20px;
   float: left;
 }

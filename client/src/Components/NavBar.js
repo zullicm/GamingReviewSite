@@ -15,5 +15,5 @@ function NavBar(){
     </div>
   )
 }
-// SignInPage
+
 export default NavBar

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 
-function Login(){
+function Login({ setCurrentUser }){
   const [account, setAccount] = useState(true)
 
   function switchForm(){
@@ -11,7 +11,7 @@ function Login(){
 
   return(
     <div>
-      {account ? <LoginForm switchForm={switchForm}/> : <SignUpForm switchForm={switchForm}/>}
+      {account ? <LoginForm setCurrentUser={setCurrentUser} switchForm={switchForm}/> : <SignUpForm switchForm={switchForm} setCurrentUser={setCurrentUser} />}
       
     </div>
   )

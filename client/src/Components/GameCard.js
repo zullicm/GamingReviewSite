@@ -7,9 +7,11 @@ function GameCard({ game }){
     <div className="gamecard-container">
       <div className="gamecard">
         <img className="game-cover" src={image}/>
-        <h4 className="white-text">{name}</h4>
-        <p className="white-text">{platform} : {release_year}</p>
-        <p className="white-text">{description}</p>
+        <div className="game-info">
+          <h4 className="white-text">{name}</h4>
+          <p className="white-text">{platform} : {release_year}</p>
+          <p className="white-text">{description}</p>
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Homepage from './Components/Homepage';
@@ -8,7 +8,11 @@ import Login from './Components/Login';
 
 
 function App() {
+  const [user, setUser] = useState([])
 
+  function setCurrentUser(user){
+    setUser(user)
+  }
 
   return (
     <div className="App">
@@ -18,7 +22,7 @@ function App() {
           <Homepage />
         </Route>
         <Route exact path="/login">
-          <Login />
+          <Login setCurrentUser={setCurrentUser} />
         </Route>
       </Switch>
     </div>

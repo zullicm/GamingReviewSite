@@ -44,9 +44,19 @@ body{
   color: #45d4ef;
 }
 
+.homepage-container{
+  margin: auto;
+  width: 80%;
+  padding: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #371841;
+  border-radius: 5px;
+  box-shadow: inset;
+}
+
 .page-container{
   margin: auto;
-
   width: 50%;
   padding: 15px;
   margin-top: 50px;
@@ -73,4 +83,21 @@ body{
   margin-top: 50px;
   border-radius: 5px;
   background-color: #e2f2ff;
+}
+
+.gamecard-container{
+  padding: 15px;
+  object-position: left;
+}
+
+.gamecard{
+  width: 50%;
+  padding: 50px;
+  
+}
+
+.game-cover{
+  width: 200px;
+  height: 275px;
+  float: left;
 }

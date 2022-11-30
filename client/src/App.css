@@ -100,8 +100,17 @@ body{
 .game-cover{
   width: 200px;
   height: 275px;
-  padding-bottom: 20px;
   float: left;
+  border-radius: 2%;
+  border-color: #ffffff;
+  border-width: 2px;
+  border-style: inset;
+  margin-right: 20px;
+  
+}
+
+.description{
+height: 150px;
 }
 
 .user-button{
@@ -110,8 +119,3 @@ body{
   border: none;
 }
 
-.profile-pic{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}

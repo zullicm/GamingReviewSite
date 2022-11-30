@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GameCard from "./GameCard";
 
-function Homepage(){
+function Homepage({setGamePage}){
   const [games, setGames] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Homepage(){
 
   return(
     <div className="homepage-container">
-      {games.map(game => <GameCard key={game.id} game={game} />)}
+      {games.map(game => <GameCard key={game.id} game={game} setGamePage={setGamePage}/>)}
     </div>
   )
 }

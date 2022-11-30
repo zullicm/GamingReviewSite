@@ -103,3 +103,15 @@ body{
   padding-bottom: 20px;
   float: left;
 }
+
+.user-button{
+  color: white;
+  background: none;
+  border: none;
+}
+
+.profile-pic{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

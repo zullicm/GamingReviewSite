@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 
 function SignUpForm({switchForm, setCurrentUser}){
 
@@ -8,6 +9,7 @@ function SignUpForm({switchForm, setCurrentUser}){
   const [image, setImage] = useState("")
   const [show, setShow] = useState("password")
   const [reShow, setReShow] = useState("password")
+  const history = useHistory()
 
   function showPass(){
     if (show === "password"){
@@ -37,7 +39,7 @@ function SignUpForm({switchForm, setCurrentUser}){
     })
     .then (res => {
       if(res.ok){
-        res.json().then(user => setCurrentUser(user))
+        res.json().then(user => setCurrentUser(user)).then(()=> history.push("/"))
       } else {
         res.json().then(e => console.log(e))
       }
@@ -86,7 +88,7 @@ function SignUpForm({switchForm, setCurrentUser}){
         <a className="red waves-effect waves-light btn-small" onClick={reShowPass}>Show Password</a>
         <br/>
         <br/>
-        <a className="green waves-effect waves-light btn-large" onClick={onSubmit}>SignUp</a>
+        <NavLink exact to="/"><a className="green waves-effect waves-light btn-large" onClick={onSubmit}>SignUp</a></NavLink>
       </div>
     </div>
   )

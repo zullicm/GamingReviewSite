@@ -24,11 +24,10 @@ function App() {
     })
   },[])
 
-if(!user) return <Login setCurrentUser={setCurrentUser} />
-console.log(user)
+
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar user={user} setCurrentUser={setCurrentUser}/>
       <Switch>
         <Route exact path="/">
           <Homepage />

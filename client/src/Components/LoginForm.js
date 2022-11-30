@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory} from "react-router-dom";
 
 function LoginForm({switchForm, setCurrentUser}){
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [show, setShow] = useState("password")
+  const history = useHistory()
 
   function showPass(){
     if (show === "password"){
@@ -16,6 +18,7 @@ function LoginForm({switchForm, setCurrentUser}){
 
   function onSubmit(e){
     e.preventDefault()
+
     fetch(`/users`,{
       method: "POST",
       headers: {'Content-Type':'application/json'},
@@ -23,7 +26,7 @@ function LoginForm({switchForm, setCurrentUser}){
     })
     .then (res => {
       if(res.ok){
-        res.json().then(user => setCurrentUser(user))
+        res.json().then(user => setCurrentUser(user)).then(()=> history.push("/"))
       } else {
         res.json().then(e => console.log(e))
       }
@@ -59,7 +62,7 @@ function LoginForm({switchForm, setCurrentUser}){
         <a className="red waves-effect waves-light btn-small" onClick={showPass}>Show Password</a>
         <br/>
         <br/>
-        <a className="green waves-effect waves-light btn-large" onClick={onSubmit}>SignUp</a>
+        <a className="green waves-effect waves-light btn-large" onClick={onSubmit}>Login</a>
       </div>
     </div>
   )

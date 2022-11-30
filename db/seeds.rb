@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Game.create(name: "", release_year: , platform: "", image: "", description: "")
+# Review.create(comment: "", rating: , user_id: , game_id: )
 
 puts "Seeding games..."
 
@@ -30,3 +31,4 @@ Game.create(name: "Fable", release_year: 2004, platform: "Xbox", image: "https:/
 Game.create(name: "Shadow of the Colossus", release_year: 2005, platform: "Playstation 2", image: "https://www.mobygames.com/images/covers/l/52946-shadow-of-the-colossus-playstation-2-front-cover.jpg", description: "Shadow of the Colossus is a 2005 action-adventure game developed by Japan Studio and Team Ico, and published by Sony Computer Entertainment for the PlayStation 2.")
 
 puts "Games Seeded!"
+

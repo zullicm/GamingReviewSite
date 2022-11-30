@@ -37,13 +37,13 @@ function App() {
       <NavBar user={user} setCurrentUser={setCurrentUser}/>
       <Switch>
         <Route exact path="/">
-          <Homepage setGamePage={setGamePage}/>
+          <Homepage setGamePage={setGamePage} />
         </Route>
         <Route exact path="/login">
           <Login setCurrentUser={setCurrentUser} />
         </Route>
         <Route exact path="/gamepage">
-          <GamePage game={game} setGamePage={setGamePage}/>
+          <GamePage game={game} setGamePage={setGamePage} user={user}/>
         </Route>
         <Route exact path="/userpage">
           <UserPage user={user}/>

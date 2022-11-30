@@ -19,7 +19,7 @@ function LoginForm({switchForm, setCurrentUser}){
   function onSubmit(e){
     e.preventDefault()
 
-    fetch(`/users`,{
+    fetch(`/login`,{
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body:JSON.stringify({ username, password })

@@ -10,6 +10,12 @@ function Homepage({setGamePage}){
     .then(data => gameSetter(data))
   }, [])
 
+  useEffect(() => {
+    fetch("http://localhost:4000/reviews")
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }, [])
+
   function gameSetter(data){
     console.log(data)
     setGames(data)
@@ -19,7 +25,7 @@ function Homepage({setGamePage}){
 
   return(
     <div className="homepage-container">
-      {games.map(game => <GameCard key={game.id} game={game} setGamePage={setGamePage}/>)}
+      {games.map(game => <GameCard user={true} key={game.id} game={game} setGamePage={setGamePage} reviewOption={<p>reviews placeholder</p>}/>)}
     </div>
   )
 }

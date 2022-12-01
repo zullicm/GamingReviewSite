@@ -112,6 +112,7 @@ body{
   width: 45%;
 }
 
+
 .description{
 height: 150px;
 }
@@ -144,4 +145,19 @@ height: 150px;
   width: 52%;
   background-color: #371841;
   padding: 20px;
+}
+
+.review-container{
+  float: right;
+  padding: 15px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+  background-color: #e2f2ff4b;
+  width: 50%;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.review-username{
+  float: left;
 }

@@ -15,7 +15,7 @@ function App() {
 
   function setCurrentUser(user){
     setUser(user)
-    console.log(user)
+    // console.log(user)
   }
 
   function setGamePage(game){

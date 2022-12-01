@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GameCard from "./GameCard";
+import ReviewCard from "./ReviewCard";
 
 function Homepage({setGamePage}){
   const [games, setGames] = useState([])
@@ -10,14 +11,13 @@ function Homepage({setGamePage}){
     .then(data => gameSetter(data))
   }, [])
 
-  useEffect(() => {
-    fetch("http://localhost:4000/reviews")
-    .then(res => res.json())
-    .then(data => console.log(data))
-  }, [])
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/reviews")
+  //   .then(res => res.json())
+  //   .then(data => console.log(data))
+  // }, [])
 
   function gameSetter(data){
-    console.log(data)
     setGames(data)
   }
 
@@ -25,7 +25,7 @@ function Homepage({setGamePage}){
 
   return(
     <div className="homepage-container">
-      {games.map(game => <GameCard user={true} key={game.id} game={game} setGamePage={setGamePage} reviewOption={<p>reviews placeholder</p>}/>)}
+      {games.map(game => <GameCard user={true} key={game.id} game={game} setGamePage={setGamePage} reviewOption={null}/>)}
     </div>
   )
 }

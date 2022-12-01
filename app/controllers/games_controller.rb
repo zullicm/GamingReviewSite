@@ -2,14 +2,12 @@ class GamesController < ApplicationController
   skip_before_action :authorized
   def index
     games = Game.all
-    # byebug
-    render json: games
+    render json: games, include: ['reviews', 'reviews.user']
   end
 
   def show
     game = Game.find_by(id: params[:id])
-    # byebug
-    render json: game
+    render json: game, include: ['reviews', 'reviews.user']
   end
 
 

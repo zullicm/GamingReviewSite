@@ -8,7 +8,7 @@ function GamePage({game, setGamePage, user}){
 
   return(
     <div className="homepage-container">
-      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm />} user={user}/>
+      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id}/>} user={user}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ReviewForm(){
+function ReviewForm({gameID, userID}){
   const [rate, setRate] = useState(10)
   const [comment, setComment] = useState("")
 
@@ -11,6 +11,29 @@ function ReviewForm(){
 
   function onSetComment(e){
     setComment(e.target.value)
+  }
+
+  function resetReview(data){
+    console.log(data)
+    setRate(10)
+    setComment("") 
+  }
+
+  function handleSubmit(e){
+    e.preventDefault()
+
+    fetch(`/reviews`,{
+      method: "POST",
+      headers: {'Content-Type':'application/json'},
+      body:JSON.stringify({
+        comment: comment,
+        rating: rate,
+        game_id: gameID,
+        user_id: userID
+      })
+    })
+    .then(res => res.json())
+    .then((data) => resetReview(data))
   }
 
   return(
@@ -29,14 +52,14 @@ function ReviewForm(){
       <p>Your Current Rating: {rate}</p>
         <label className="left">Comment</label>
           <textarea id="textarea1" 
-          class="materialize-textarea"
+          className="materialize-textarea"
           placeholder="Comment"
           value={comment} 
           onChange={onSetComment}
           ></textarea>
         <br/>
         <br/>
-        <a className="green waves-effect waves-light btn-large" >Submit Review</a>
+        <a className="green waves-effect waves-light btn-large" onClick={handleSubmit} >Submit Review</a>
     </div>
   )
 }

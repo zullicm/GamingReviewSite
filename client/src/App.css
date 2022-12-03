@@ -89,6 +89,10 @@ body{
   padding: 15px;
   margin: 20px;
   background-color: rgba(255, 255, 255, 0.082);
+  border-color: rgba(0, 0, 0, 0.288);
+  border-style: inset;
+  border-width: 1px;
+  border-radius: 1%;
 }
 
 .gamecard{
@@ -163,6 +167,6 @@ height: 150px;
 }
 
 .review-username{
-  float: left;
-  margin-bottom: 2px;
+  padding: 0px;
+  margin: 0px;
 }

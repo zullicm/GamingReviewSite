@@ -5,9 +5,17 @@ function ReviewCard({ review }){
   return(
     <div className="">
       <div className="review-container" >
-        <p className="review-username"><b>{review.user.username}</b> said:<br/> and gave it a rating of:
-        <br/><b>{review.rating}</b></p>
-        <p>{review.comment}</p>
+        <p className="review-username"><em><b><u>Most Recent Review</u></b></em></p>
+        <br/>
+        <p className="review-username"><b>{review.user.username}</b> gave it a rating of <b>{review.rating}</b> and said:<br/><br/>
+        </p>
+        <br/>
+        <br/>
+        <p className="review-username">{review.comment}</p>
+        <br/>
+        <br/>
+        <p className="review-username"><b>Want to leave a leave a review?</b></p>
+        <p className="review-username"><b>Click on the games cover photo to see how!</b></p>
       </div>
     </div>
   )

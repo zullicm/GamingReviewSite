@@ -18,6 +18,8 @@ function GameCard({ game, setGamePage, reviewOption, user }){
     <div className="gamecard-container">
       <div className="gamecard">
         {user ?  reviewOption || <ReviewCard review={mostRecentReview}/> : <h3 id="no-user-review">To leave a review on this game, please login 😀</h3>}
+        
+        
         <img onClick={toGamePage} className="game-cover" src={image}/>
         <div className="game-info">
           <h4 className="game-name white-text">{name}</h4>

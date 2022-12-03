@@ -147,6 +147,10 @@ height: 150px;
   padding: 20px;
 }
 
+.review{
+
+}
+
 .review-container{
   float: right;
   padding: 15px;
@@ -160,4 +164,5 @@ height: 150px;
 
 .review-username{
   float: left;
+  margin-bottom: 2px;
 }

@@ -46,7 +46,7 @@ function App() {
           <GamePage game={game} setGamePage={setGamePage} user={user}/>
         </Route>
         <Route exact path="/userpage">
-          <UserPage user={user}/>
+          <UserPage user={user} setCurrentUser={setCurrentUser} />
         </Route>
       </Switch>
     </div>

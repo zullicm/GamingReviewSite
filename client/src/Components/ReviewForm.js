@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ReviewForm({gameID, userID}){
+function ReviewForm({gameID, userID, addReview}){
   const [rate, setRate] = useState(10)
   const [comment, setComment] = useState("")
 
@@ -17,6 +17,7 @@ function ReviewForm({gameID, userID}){
     console.log(data)
     setRate(10)
     setComment("") 
+    addReview(data)
   }
 
   function handleSubmit(e){

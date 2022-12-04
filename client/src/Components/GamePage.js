@@ -4,12 +4,15 @@ import ReviewCard from "./ReviewCard";
 import ReviewForm from "./ReviewForm";
 
 function GamePage({game, setGamePage, user}){
-  const [reviews, setreviews] = useState(game.reviews)
+  const [reviews, setReviews] = useState(game.reviews)
 
-console.log(reviews)
+  function addReview(newReview){
+    setReviews([...reviews, newReview])
+  }
+
   return(
     <div className="homepage-container">
-      {user ? <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id}/>} user={user}/> : <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm />} user={user}/>}
+      {user ? <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={addReview}/>} user={user}/> : <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm />} user={user}/>}
       {reviews.map(review => <ReviewCard review={review} type="game"/>)}
     </div>
   )

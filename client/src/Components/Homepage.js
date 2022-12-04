@@ -15,7 +15,6 @@ function Homepage({setGamePage}){
     setGames(data)
   }
   
-console.log(games)
   return(
     <div className="homepage-container">
       {games.map(game => <GameCard user={true} key={game.id} game={game} setGamePage={setGamePage} reviewOption={null}/>)}

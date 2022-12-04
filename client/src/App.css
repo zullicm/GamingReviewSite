@@ -187,3 +187,22 @@ height: 150px;
   font-size: larger;
 }
 
+.user-profile-img-help{
+  text-align: left;
+}
+
+.user-profile-img{
+  margin-left: 7%;
+  margin-top: 4%;
+  width: 200px;
+  height: 200px;
+  align-self: left;
+  border-color: white;
+  border-style: inset;
+  border-radius: 3px;
+}
+
+.username{
+  margin-left: 7%;
+  text-align: left;
+}

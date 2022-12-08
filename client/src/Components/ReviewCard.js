@@ -20,7 +20,7 @@ function ReviewCard({ review, user, type, editReview }){
   }else if(type === "game"){
     return(
         <div className={`review-${type}`} >
-          <h4 className="left-align">{review.user.username}</h4>
+          <h4 className="left-align">{review.user.username} </h4>
           <h5 className={`left review-username-${type}`}><b></b>Rating: <b>{review.rating}</b>
           </h5>
           <br/>

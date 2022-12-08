@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import GameCard from "./GameCard";
-import ReviewCard from "./ReviewCard";
 
 function Homepage({setGamePage}){
   const [games, setGames] = useState([])

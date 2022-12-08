@@ -13,6 +13,7 @@ function Homepage({setGamePage}){
 
   function gameSetter(data){
     setGames(data)
+    console.log(data)
   }
   
   return(

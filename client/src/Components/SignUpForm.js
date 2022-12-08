@@ -78,15 +78,6 @@ function SignUpForm({switchForm, setCurrentUser}){
           onChange={(e) => setPassword(e.target.value)}></input>
         <a className="red waves-effect waves-light btn-small" onClick={showPass}>Show Password</a>
         <br/>
-        <label className="left">Re-Type Password</label>
-        <input 
-          name="re-password" 
-          placeholder="Password" 
-          type={reShow}
-          value={rePassword}
-          onChange={(e) => setRePassword(e.target.value)}></input>
-        <a className="red waves-effect waves-light btn-small" onClick={reShowPass}>Show Password</a>
-        <br/>
         <br/>
         <NavLink exact to="/"><a className="green waves-effect waves-light btn-large" onClick={onSubmit}>SignUp</a></NavLink>
       </div>

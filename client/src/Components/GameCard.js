@@ -13,9 +13,6 @@ function GameCard({ game, setGamePage, reviewOption, user }){
     history.push("/gamepage")
   }
 
-  console.log(game)
-
-
   return(
     <div className="gamecard-container">
       <div className="gamecard">

@@ -12,10 +12,10 @@ import UserPage from './Components/UserPage';
 function App() {
   const [user, setUser] = useState(null)
   const [game, setGame] = useState(null)
+  const [reviews, setReviews] = useState([])
 
   function setCurrentUser(user){
     setUser(user)
-    // console.log(user)
   }
 
   function setGamePage(game){
@@ -27,11 +27,17 @@ function App() {
     .then(res => {
       if(res.ok){
         res.json().then(user => setCurrentUser(user))
+
+        fetch('/reviews')
+        .then(res => res.json())
+        .then(data => setReviews(data))
       }
     })
   },[])
 
-console.log(user)
+
+
+
   return (
     <div className="App">
       <NavBar user={user} setCurrentUser={setCurrentUser}/>
@@ -43,10 +49,10 @@ console.log(user)
           <Login setCurrentUser={setCurrentUser} />
         </Route>
         <Route exact path="/gamepage">
-          <GamePage game={game} setGamePage={setGamePage} user={user}/>
+          <GamePage game={game} setGamePage={setGamePage} user={user} allReviews={reviews}/>
         </Route>
         <Route exact path="/userpage">
-          <UserPage user={user} setCurrentUser={setCurrentUser} />
+          <UserPage user={user} setCurrentUser={setCurrentUser} setGamePage={setGamePage} />
         </Route>
       </Switch>
     </div>

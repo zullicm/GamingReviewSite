@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function ReviewUpdate({currentRate, currentComment, gameID, userID, reviewID, addReview}){
+function ReviewUpdate({currentRate, currentComment, gameID, userID, reviewID, addReview, deleteReview }){
   const [rate, setRate] = useState(currentRate)
   const [comment, setComment] = useState(currentComment)
 
@@ -34,6 +34,15 @@ function ReviewUpdate({currentRate, currentComment, gameID, userID, reviewID, ad
     .then((data) => resetReview(data))
   }
 
+  function handleDelete(e){
+    e.preventDefault()
+    fetch(`/reviews/${reviewID}`,{
+      method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(data => deleteReview(data))
+  }
+
   return(
     <div className="review-form">
       <button onClick={onSetRate} value="1" className="rate-button">1</button>
@@ -56,7 +65,7 @@ function ReviewUpdate({currentRate, currentComment, gameID, userID, reviewID, ad
           ></textarea>
         <br/>
         <br/>
-        <a className="green waves-effect waves-light btn-large" onClick={handleSubmit} >Submit Review</a>
+        <a className="green waves-effect waves-light btn-large" onClick={handleSubmit} >Submit Review</a> <a className="red waves-effect waves-light btn-large" onClick={handleDelete} >Delete Review</a>
     </div>
   )
 }

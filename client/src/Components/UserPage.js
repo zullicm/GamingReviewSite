@@ -4,7 +4,7 @@ import GameCard from "./GameCard";
 import ReviewCard from "./ReviewCard";
 import ReviewUpdate from "./ReviewUpdate";
 
-function UserPage({ user, setCurrentUser }){
+function UserPage({ user, setCurrentUser, setGamePage }){
   const history = useHistory()
   const reviewsRating = user.reviews.map(review => review.rating)
   const ratingTotal = reviewsRating.reduce((a, b) => a + b, 0)
@@ -48,7 +48,13 @@ function UserPage({ user, setCurrentUser }){
     setReview(review)
   }
 
-  // onClick={logoutUser}
+  function deleteReview(data){
+    setChangeReview(!changeReview)
+    const deleted = reviews.filter(review => review.id !== data.id)
+    setReviews(deleted)
+  }
+
+
 
   return (
     <div>
@@ -61,14 +67,14 @@ function UserPage({ user, setCurrentUser }){
         <div className="user-profile-img-help"><img className="user-profile-img" src={user.profile_img} /></div>
       <br/>
       <br/>  
-      <a class="logout red waves-effect waves-light btn-large" onClick={logoutUser} >Logout</a>
+      <a className="logout red waves-effect waves-light btn-large" onClick={logoutUser} >Logout</a>
       </div>
       <div className="homepage-container">
         <h2 className="username white-text">{user.username}{lastLetter === "s" ? "'" : "'s"} Reviews</h2>
         {changeReview ? 
-        <GameCard user={true} key={review.id} game={review.game} setGamePage={null} reviewOption={<ReviewUpdate gameID={review.game.id} userID={user.id} addReview={addReview} currentRate={review.rating} currentComment={review.comment} reviewID={review.id} />}/> 
+        <GameCard user={true} key={review.id} game={review.game} setGamePage={setGamePage} reviewOption={<ReviewUpdate gameID={review.game.id} userID={user.id} addReview={addReview} currentRate={review.rating} currentComment={review.comment} reviewID={review.id} deleteReview={deleteReview}/>}/> 
         : 
-        reviews.map(review => <GameCard user={true} key={review.id} game={review.game} setGamePage={null} reviewOption={<ReviewCard review={review} user={user} type="profile" editReview={editReview}/>}/>)}
+        reviews.map(review => <GameCard user={true} key={review.id} game={review.game} setGamePage={setGamePage} reviewOption={<ReviewCard review={review} user={user} type="profile" editReview={editReview}/>}/>)}
       </div>
     </div>
   )

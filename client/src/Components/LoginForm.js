@@ -17,6 +17,12 @@ function LoginForm({switchForm, setCurrentUser}){
     }
   }
 
+  function handleError(e){
+    setError(e)
+    setUsername("")
+    setPassword("")
+    setShow("password")
+  }
 
 
   function onSubmit(e){
@@ -31,7 +37,7 @@ function LoginForm({switchForm, setCurrentUser}){
       if(res.ok){
         res.json().then(user => setCurrentUser(user)).then(()=> history.push("/"))
       } else {
-        res.json().then(e => setError(e))
+        res.json().then(e => handleError(e))
       }
     })
   }

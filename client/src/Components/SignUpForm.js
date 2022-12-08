@@ -9,6 +9,7 @@ function SignUpForm({switchForm, setCurrentUser}){
   const [image, setImage] = useState("")
   const [show, setShow] = useState("password")
   const [reShow, setReShow] = useState("password")
+  const [error, setError] = useState("")
   const history = useHistory()
 
   function showPass(){
@@ -41,11 +42,17 @@ function SignUpForm({switchForm, setCurrentUser}){
       if(res.ok){
         res.json().then(user => setCurrentUser(user)).then(()=> history.push("/"))
       } else {
-        res.json().then(e => console.log(e))
+        res.json().then(e => handleError(e))
       }
     })
   }
 
+  function handleError(e){
+    setError(e)
+    setUsername("")
+    setImage("")
+    setPassword("")
+  }
 
   return(
     <div className="page-container z-depth-2">
@@ -54,6 +61,7 @@ function SignUpForm({switchForm, setCurrentUser}){
         <a onClick={switchForm} className="blue lighten-3 waves-effect waves-light btn-small">Login Here!</a>
       </div>
       <div className="signin-field">
+        <p><b><u>{error.errors}</u></b></p>
         <label className="left">Username</label>
         <input 
           id="username" 

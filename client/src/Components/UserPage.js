@@ -1,12 +1,31 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import GameCard from "./GameCard";
+import ReviewCard from "./ReviewCard";
+import ReviewUpdate from "./ReviewUpdate";
 
 function UserPage({ user, setCurrentUser }){
   const history = useHistory()
-  const [image, setImage] = useState(user.profile_img)
+  const reviewsRating = user.reviews.map(review => review.rating)
+  const ratingTotal = reviewsRating.reduce((a, b) => a + b, 0)
+  const ratingAvg = ratingTotal / reviewsRating.length
+  const lastLetter = user.username.slice(-1)
+  const [changeReview, setChangeReview] = useState(false)
+  const [review, setReview] = useState(null)
+  const [reviews, setReviews] = useState(user.reviews)
+
+  function addReview(newReview){
+    setChangeReview(!changeReview)
+    let removeOld = reviews.filter(review => review.id !== newReview.id)
+    const newReviews = removeOld.unshift(newReview)
+    console.log(removeOld)
+    setReviews(removeOld)
+  }
+
+
 
 //--------------------------
-  console.log(user)
+  // console.log(user)
 //--------------------------
 
 
@@ -24,13 +43,32 @@ function UserPage({ user, setCurrentUser }){
     pushLogin()
   }
 
+  function editReview(review){
+    setChangeReview(!changeReview)
+    setReview(review)
+  }
+
+  // onClick={logoutUser}
+
   return (
     <div>
-      <button onClick={logoutUser}>Logout</button>
+      <div className="profile-container">
+        <div className="user-review-info">
+          <h4>This is {user.username}</h4>
+          <h4>They have left <b><em><u>{user.reviews.length}</u></em></b> reviews</h4>
+          <h4>and they have a review average of <b><em><u>{Math.round(ratingAvg)}</u></em></b></h4>
+        </div>
+        <div className="user-profile-img-help"><img className="user-profile-img" src={user.profile_img} /></div>
+      <br/>
+      <br/>  
+      <a class="logout red waves-effect waves-light btn-large" onClick={logoutUser} >Logout</a>
+      </div>
       <div className="homepage-container">
-        <div className="user-profile-img-help"><img className="user-profile-img" src={image} /></div>
-        <h3 className="username white-text">{user.username}</h3>
-
+        <h2 className="username white-text">{user.username}{lastLetter === "s" ? "'" : "'s"} Reviews</h2>
+        {changeReview ? 
+        <GameCard user={true} key={review.id} game={review.game} setGamePage={null} reviewOption={<ReviewUpdate gameID={review.game.id} userID={user.id} addReview={addReview} currentRate={review.rating} currentComment={review.comment} reviewID={review.id} />}/> 
+        : 
+        reviews.map(review => <GameCard user={true} key={review.id} game={review.game} setGamePage={null} reviewOption={<ReviewCard review={review} user={user} type="profile" editReview={editReview}/>}/>)}
       </div>
     </div>
   )

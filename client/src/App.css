@@ -149,10 +149,6 @@ height: 150px;
   padding: 20px;
 }
 
-.review{
-
-}
-
 .review-main{
   float: right;
   padding: 15px;
@@ -203,6 +199,62 @@ height: 150px;
 }
 
 .username{
-  margin-left: 7%;
-  text-align: left;
+  text-align: center;
+  padding: 15px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.082);
+  border-color: rgba(0, 0, 0, 0.288);
+  border-style: inset;
+  border-width: 1px;
+  border-radius: 2%;
+}
+
+.user-review-info{
+  text-align: center;
+  width: 55%;
+  align-self: right;
+  background-color: #e2f2ff4b;
+  float: right;
+  margin-top: 4%;
+  margin-right: 6%;
+  height: 200px;
+  padding-right: 2%;
+  padding-left: 2%;
+  color: white;
+  border-color: white;
+  border-style: inset;
+  border-radius: 3px;
+}
+
+
+.profile-container{
+  margin: auto;
+  width: 80%;
+  padding: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #371841;
+  border-radius: 5px;
+  box-shadow: inset;
+  padding-bottom: 3%;
+}
+
+.review-username-profile{
+  padding: 0px;
+  margin: 0px;
+}
+
+.review-profile{
+  float: right;
+  padding: 15px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+  background-color: #e2f2ff4b;
+  width: 50%;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.logout{
+  margin: 20px;
 }

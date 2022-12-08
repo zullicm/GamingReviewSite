@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReviewCard({ review, type }){
+function ReviewCard({ review, user, type, editReview }){
   
   if(type === "main"){
   return(
@@ -17,7 +17,7 @@ function ReviewCard({ review, type }){
         <p className={`review-username-${type}`}><b>Click on the games cover photo to see how!</b></p>
       </div>
 )
-  }else{
+  }else if(type === "game"){
     return(
         <div className={`review-${type}`} >
           <h4 className="left-align">{review.user.username}</h4>
@@ -27,6 +27,18 @@ function ReviewCard({ review, type }){
           <p className={`review-username-${type}`}>{review.comment}</p>
         </div>
   )
+  }else{
+    return(
+      <div className={`review-${type}`} >
+        <p className={`review-username-${type}`}><b>{user.username}</b> gave it a rating of <b>{review.rating}</b> and said:<br/><br/>
+        </p>
+        <br/>
+        <p className={`review-username-${type}`}>{review.comment}</p>
+        <br/>
+        <br/>
+        <a className="purple waves-effect waves-light btn-large" onClick={()=>editReview(review)}>Edit Review</a>
+      </div>
+    )
   }
 }
 

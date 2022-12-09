@@ -22,6 +22,11 @@ function App() {
     setGame(game)
   }
 
+  function reviewSetter(data){
+    console.log("reviewsetter ran")
+    setReviews(data)
+  }
+
   useEffect(() =>{
     fetch('/auth')
     .then(res => {
@@ -30,12 +35,10 @@ function App() {
 
         fetch('/reviews')
         .then(res => res.json())
-        .then(data => setReviews(data))
+        .then(data => reviewSetter(data))
       }
     })
   },[])
-
-
 
 
   return (
@@ -52,7 +55,7 @@ function App() {
           <GamePage game={game} setGamePage={setGamePage} user={user} allReviews={reviews}/>
         </Route>
         <Route exact path="/userpage">
-          <UserPage user={user} setCurrentUser={setCurrentUser} setGamePage={setGamePage} />
+          <UserPage user={user} setCurrentUser={setCurrentUser} setGamePage={setGamePage} allReviews={reviews} reviewSetter={reviewSetter}/>
         </Route>
       </Switch>
     </div>

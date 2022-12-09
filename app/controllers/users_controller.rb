@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: :create
+
+
   def create
     user = User.create(user_params)
     if user.valid?
@@ -10,6 +12,8 @@ class UsersController < ApplicationController
     end
   end
 
+
+  
   def show
     user = User.find_by(id: session[:user_id])
     if user

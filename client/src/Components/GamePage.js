@@ -30,7 +30,14 @@ function GamePage({game, setGamePage, user, allReviews, addReview}){
         {user ? 
         <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={sendAddReview}/>} user={user}/> 
         : 
-        <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={sendAddReview}/>} user={user}/>}
+        <GameCard 
+        game={game} 
+        setGamePage={setGamePage} 
+        reviewOption={
+        <ReviewForm 
+        gameID={game.id} 
+        addReview={sendAddReview}/>} 
+        user={user}/>}
         {filterReviews.map(review => <ReviewCard key={review.id} review={review} type="game"/>)}
       </div>
     )

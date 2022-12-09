@@ -4,6 +4,16 @@
 
 Byegone gaming is a website about the games of the past. Mainly games from two console generations before the current or any game 10+ years of age. A lot of new gamers find themselves gravitating towards todays most popular games but some may wonder where it all started. Here you can upload the game you have na dleave a review so the people that have never played may see what they missed out on. 
 
+### Features
+* Homepage
+* NavBar
+* Homepage with games and most recent review
+* Game page with all reviews of game
+* User page with all reviews left with associated game
+* Create review
+* Edit review
+* Delete review
+* Create users that are private and you can log into and out of 
 
 
 # Project Template: React/Rails API
@@ -42,37 +52,13 @@ $ cd your-project-name
 $ git remote rm origin
 ```
 
-Then, [create a new remote repository][create repo] on GitHub. Head to
-[github.com](https://github.com) and click the **+** icon in the top-right
-corner and follow the steps to create a new repository. **Important**: don't
-check any of the options such as 'Add a README file', 'Add a .gitignore file',
-etc. — since you're importing an existing repository, creating any of those
-files on GitHub will cause issues.
-
-[create repo]: https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line#adding-a-project-to-github-without-github-cli
-
-If you're working with a partner,
-[add them as a collaborator][add collaborator] on GitHub. From your repo on
-GitHub, go to Settings > Manage Access > Invite a collaborator and enter your
-partner's username. Once your partner has access, they should git **clone** (not
-fork) the repository.
-
-[add collaborator]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-
-Finally, connect the GitHub remote repository to your local repository and push
-up your code:
-
-```console
-$ git remote add origin git@github.com:your-username/your-project-name.git
-$ git push -u origin main
-```
-
-When you're ready to start building your project, run:
+When you're ready to start run:
 
 ```sh
 bundle install
-rails db:create
 npm install --prefix client
+rails db:migrate
+rails db:seed
 ```
 
 You can use the following commands to run the application:
@@ -81,10 +67,7 @@ You can use the following commands to run the application:
 - `npm start --prefix client`: run the frontend on
   [http://localhost:4000](http://localhost:4000)
 
-Make sure to also update this README to include documentation about
-your project. Here's a list of some [awesome readmes][] for inspiration.
 
-[awesome readmes]: https://github.com/matiassingers/awesome-readme
 
 ## Deploying
 

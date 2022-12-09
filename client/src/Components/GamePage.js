@@ -23,17 +23,7 @@ function GamePage({game, setGamePage, user, allReviews, addReview}){
   .then(data => reviewSetter(data))
 }, [])
 
-if(game.reviews){
-  return(
-    <div className="homepage-container">
-      {user ? 
-      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={sendAddReview}/>} user={user}/> 
-      : 
-      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} addReview={sendAddReview}/>} user={user}/>}
-      {game.reviews.map(review => <ReviewCard key={review.id} review={review} type="game"/>)}
-    </div>
-  )
-  }else{
+
     const filterReviews = reviews.filter(review => game.id === review.game.id)
     return(
       <div className="homepage-container">
@@ -45,6 +35,5 @@ if(game.reviews){
       </div>
     )
   }
-}
 
 export default GamePage

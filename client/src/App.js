@@ -23,23 +23,35 @@ function App() {
   }
 
   function reviewSetter(data){
-    console.log("reviewsetter ran")
     setReviews(data)
   }
+
+  function editReview(newReviews){
+    setReviews(newReviews)
+  }
+
+  function deleteReview(newReviews){
+    setReviews(newReviews)
+  }
+
+  function addReview(newReviews){
+    setReviews(newReviews)
+  }
+
+  useEffect(() => {
+    fetch('/reviews')
+    .then(res => res.json())
+    .then(data => reviewSetter(data))
+  },[])
 
   useEffect(() =>{
     fetch('/auth')
     .then(res => {
       if(res.ok){
-        res.json().then(user => setCurrentUser(user))
-
-        fetch('/reviews')
-        .then(res => res.json())
-        .then(data => reviewSetter(data))
+        res.json().then(user => setUser(user))
       }
     })
   },[])
-
 
   return (
     <div className="App">
@@ -52,10 +64,10 @@ function App() {
           <Login setCurrentUser={setCurrentUser} />
         </Route>
         <Route exact path="/gamepage">
-          <GamePage game={game} setGamePage={setGamePage} user={user} allReviews={reviews}/>
+          <GamePage game={game} setGamePage={setGamePage} user={user} allReviews={reviews} addReview={addReview} />
         </Route>
         <Route exact path="/userpage">
-          <UserPage user={user} setCurrentUser={setCurrentUser} setGamePage={setGamePage} allReviews={reviews} reviewSetter={reviewSetter}/>
+          <UserPage user={user} setCurrentUser={setCurrentUser} setGamePage={setGamePage} allReviews={reviews} reviewSetter={reviewSetter} editReview={editReview} deleteReview={deleteReview} addReview={addReview}/>
         </Route>
       </Switch>
     </div>

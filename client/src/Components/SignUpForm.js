@@ -5,10 +5,8 @@ function SignUpForm({switchForm, setCurrentUser}){
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [rePassword, setRePassword] = useState("")
   const [image, setImage] = useState("")
   const [show, setShow] = useState("password")
-  const [reShow, setReShow] = useState("password")
   const [error, setError] = useState("")
   const history = useHistory()
 
@@ -19,13 +17,7 @@ function SignUpForm({switchForm, setCurrentUser}){
       setShow("password")
     }
   }
-  function reShowPass(){
-    if (reShow === "password"){
-      setReShow("text")
-    }else{
-      setReShow("password")
-    }
-  }
+
 
   function onSubmit(e){
     e.preventDefault()

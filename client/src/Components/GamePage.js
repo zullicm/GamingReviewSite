@@ -3,19 +3,17 @@ import GameCard from "./GameCard";
 import ReviewCard from "./ReviewCard";
 import ReviewForm from "./ReviewForm";
 
-function GamePage({game, setGamePage, user, allReviews}){
+function GamePage({game, setGamePage, user, allReviews, addReview}){
   const [reviews, setReviews] = useState(allReviews)
 
 
-  function addReview(newReview){
+  function sendAddReview(newReview){
     console.log(newReview)
     setReviews([newReview, ...reviews])
+    addReview([newReview, ...reviews])
   }
-
-  console.log(game.reviews)
  
   function reviewSetter(data){
-    console.log("reviewSetter ran")
     setReviews(data)
   }
 
@@ -29,10 +27,10 @@ if(game.reviews){
   return(
     <div className="homepage-container">
       {user ? 
-      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={addReview}/>} user={user}/> 
+      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={sendAddReview}/>} user={user}/> 
       : 
-      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} addReview={addReview}/>} user={user}/>}
-      {game.reviews.map(review => <ReviewCard review={review} type="game"/>)}
+      <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} addReview={sendAddReview}/>} user={user}/>}
+      {game.reviews.map(review => <ReviewCard key={review.id} review={review} type="game"/>)}
     </div>
   )
   }else{
@@ -40,10 +38,10 @@ if(game.reviews){
     return(
       <div className="homepage-container">
         {user ? 
-        <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={addReview}/>} user={user}/> 
+        <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={sendAddReview}/>} user={user}/> 
         : 
-        <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={addReview}/>} user={user}/>}
-        {filterReviews.map(review => <ReviewCard review={review} type="game"/>)}
+        <GameCard game={game} setGamePage={setGamePage} reviewOption={<ReviewForm gameID={game.id} userID={user.id} addReview={sendAddReview}/>} user={user}/>}
+        {filterReviews.map(review => <ReviewCard key={review.id} review={review} type="game"/>)}
       </div>
     )
   }

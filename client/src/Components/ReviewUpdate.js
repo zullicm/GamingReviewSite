@@ -13,10 +13,6 @@ function ReviewUpdate({currentRate, currentComment, gameID, userID, reviewID, ad
     setComment(e.target.value)
   }
 
-  function resetReview(data){
-    addReview(data)
-  }
-
   function handleSubmit(e){
     e.preventDefault()
 
@@ -31,7 +27,7 @@ function ReviewUpdate({currentRate, currentComment, gameID, userID, reviewID, ad
       })
     })
     .then(res => res.json())
-    .then((data) => resetReview(data))
+    .then((data) => addReview(data))
   }
 
   function handleDelete(e){

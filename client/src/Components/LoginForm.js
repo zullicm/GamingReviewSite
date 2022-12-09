@@ -42,11 +42,7 @@ function LoginForm({switchForm, setCurrentUser}){
     })
   }
 
-
-console.log(error.errors)
-
   return(
-
     
     <div className="page-container z-depth-2">
       <div>
@@ -54,7 +50,7 @@ console.log(error.errors)
         <a onClick={switchForm} className="blue lighten-3 waves-effect waves-light btn-small">Sign Up Here!</a>
       </div>
       <div className="signin-field">
-        <p classname="text-red"><b><u>{error.errors}</u></b></p>
+        <p className="text-red"><b><u>{error.errors}</u></b></p>
         <label className="left">Username</label>
         <input 
           id="username" 
